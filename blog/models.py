@@ -10,12 +10,18 @@ STATUS = (
 class Post(models.Model):
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='blog_posts')
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="blog_posts")
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
     excerpt = models.TextField(blank=True)
-    update_on = models.DateTimeField(auto_now=True)
+    updated_on = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ["-created_on"]
+
+    def __str__(self):
+        return f"{self.title} | written by {self.author}"
 
 
 class Comment(models.Model):
@@ -27,6 +33,7 @@ class Comment(models.Model):
 
     class Meta:
         ordering = ['-created_on']
-        def __str__(self):
-            return f"{self.body} by {self.author}"
+    
+    def __str__(self):
+        return f"{self.body} by {self.author}"
         

@@ -4,6 +4,7 @@ env.py
 __pycache__/
 *.py[cod]
 *$py.class
+blog/fixtures/
 
 # C extensions
 *.so
