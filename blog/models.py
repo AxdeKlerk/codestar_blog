@@ -36,3 +36,8 @@ class Comment(models.Model):
     
     def __str__(self):
         return f"{self.body} by {self.author}"
+
+def profile_page(request):
+    user = get_object_or_404(User, user=request.user)
+    # Retrieve all comments associated with the current user
+    comments = user.comments.all()
