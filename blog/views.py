@@ -86,6 +86,19 @@ def comment_delete(request, slug, comment_id):
     view to delete comment
     """
     queryset = Post.objects.filter(status=1)
+    """
+        Retrieve a specific post from the filtered queryset using the provided slug.
+        
+        Args:
+            queryset (QuerySet): A filtered queryset of posts
+            slug (str): The unique slug identifier for the post
+        
+        Returns:
+            Post: The matching post object
+        
+        Raises:
+            Http404: If no post matches the given slug in the queryset
+        """
     post = get_object_or_404(queryset, slug=slug)
     comment = get_object_or_404(Comment, pk=comment_id)
 
