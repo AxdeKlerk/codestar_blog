@@ -30,7 +30,7 @@ SECRET_KEY = '`&k{NN8S)YNOCy_r6]XjpPHhK.jG=@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-# DEBUG = True only when coding, but make sure to turn off when pushing to GitHub
+# DEBUG = True only when coding, but make sure to turn off when pushing to GitHub, or Heroku
 
 ALLOWED_HOSTS = [
     'localhost',
@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'cloudinary_storage',
     'django.contrib.sites',
     'allauth',
     'allauth.account',
@@ -56,6 +57,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'crispy_bootstrap5',
     'django_summernote',
+    'cloudinary',
     'blog',
     'about',
 ]
